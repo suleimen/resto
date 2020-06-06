@@ -1,0 +1,35 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="01" author="shah">
+        <loadData encoding="UTF-8"
+                  file="liquibase/data/restaurants.csv"
+                  separator=";"
+                  tableName="restaurant"/>
+        <loadData encoding="UTF-8"
+                  file="liquibase/data/restaurant_menus.csv"
+                  separator=";"
+                  tableName="restaurant_menu">
+            <column name="is_active" type="BOOLEAN" defaultValue="false"/>
+        </loadData>
+        <loadData encoding="UTF-8"
+                  file="liquibase/data/categories.csv"
+                  separator=";"
+                  tableName="category"/>
+        <loadData encoding="UTF-8"
+                  file="liquibase/data/menu_categories.csv"
+                  separator=";"
+                  tableName="menu_category"/>
+        <loadData encoding="UTF-8"
+                  file="liquibase/data/products.csv"
+                  separator=";"
+                  tableName="product"/>
+    </changeSet>
+
+</databaseChangeLog>
